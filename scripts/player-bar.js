@@ -2,6 +2,8 @@ $( document ).ready(function() {
     $('button#play-pause').click( function() {
       player.playPause();
       $(this).attr('playState',player.playState);
+    });
+
       $('button#next').click(function(){
         if (player.playState !== 'playing') { return; }
         const currentSongIndex = album.songs.indexOf(player.currentlyPlaying);
@@ -10,5 +12,5 @@ $( document ).ready(function() {
         const nextSong = album.songs[nextSongIndex];
         player.playPause(nextSong);
       });
-    });
-  });
+    
+});
