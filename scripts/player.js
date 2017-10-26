@@ -13,6 +13,15 @@ class Player {
   getTime() {
     return this.soundObject.getTime();
   }
+ 
+  prettyTime(timeInSeconds) {
+    timeInSeconds %= 3600;
+    var minutes = Math.floor(timeInSeconds / 60);
+    var seconds = timeInSeconds % 60;
+    var timeFormat = minutes + ':' + seconds;
+    return timeFormat;
+  }
+
   
   playPause (song = this.currentlyPlaying) {
     if (this.currentlyPlaying !== song) {
