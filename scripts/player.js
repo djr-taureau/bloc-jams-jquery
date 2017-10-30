@@ -15,13 +15,15 @@ class Player {
   }
  
   prettyTime(timeInSeconds) {
-    timeInSeconds %= 3600;
-    var minutes = Math.floor(timeInSeconds / 60);
-    var seconds = timeInSeconds % 60;
-    var timeFormat = minutes + ':' + seconds;
-    return timeFormat;
+    timeInSeconds = Number(timeInSeconds);
+    var h = Math.floor(timeInSeconds / 3600);
+    var m = Math.floor(timeInSeconds % 3600 / 60);
+    var s = Math.floor(timeInSeconds % 3600 % 60);
+      return ('0' + h).slice(-2) + ":" + ('0' + m).slice(-2) + ":" + ('0' + s).slice(-2);
   }
 
+
+  
   
   playPause (song = this.currentlyPlaying) {
     if (this.currentlyPlaying !== song) {
